@@ -1,0 +1,16 @@
+{
+    "name": "deja_vu_server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^14.11.0",
+        "messagepack": "^1.1.12",
+        "ws": "^8.13.0"
+    }
+}
