@@ -10,7 +10,7 @@ Does it seem a little silly to have two bots for one job? Try the stand alone DÃ
 
 ## Instructions
 1. Install Node.js 18
-2. Create a Discord bot in the [Discord Developer Portal](https://discord.com/developers.applications)
+2. Create a Discord bot in the [Discord Developer Portal](https://discord.com/developers.applications) (Avatar can be found in assets folder)
 3. Download or clone the repo
 4. `npm install`
 5. Run `node server.js` once to create the config file
