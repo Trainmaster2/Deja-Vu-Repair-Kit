@@ -2,6 +2,7 @@
 TODO: Add a better description  
 TODO: Add better instructions  
 TODO: Add release binaries  
+TODO: Add "protocol" documentation
 
 ## Description
 In an act of privacy protection, Discord removed the ability for bots in more than 100 servers to read message content without authorization from Discord. Unfortunately, Déjà Vu did not meet their requirements and was denied authorization. To combat this, I developed the Déjà Vu Repair Kit to let Déjà Vu see once again.
