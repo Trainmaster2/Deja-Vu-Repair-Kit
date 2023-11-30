@@ -39,7 +39,14 @@ function createWebsocket() {
                 case "VERIFICATION_RESPONSE": {
                     if (checkString(wsMessage.guild) && checkString(wsMessage.channel) && checkString(wsMessage.message) && checkString(wsMessage.emoji)) {
                         if (wsMessage.guild == verification_guild && wsMessage.channel == verification_channel) {
-                            client.guilds.resolve(verification_guild).channels.resolve(verification_channel).messages.resolve(wsMessage.message).react(wsMessage.emoji)
+                            const message = client.guilds.resolve(verification_guild).channels.resolve(verification_channel).messages.resolve(wsMessage.message)
+                            if (message) {
+                                message.react(wsMessage.emoji).catch(e => {
+                                    setTimeout(() => ws.send(encode({request: "VERIFICATION_REQUEST", guild: verification_guild, channel: verification_channel}), 10000))
+                                })
+                            } else {
+                                setTimeout(() => ws.send(encode({request: "VERIFICATION_REQUEST", guild: verification_guild, channel: verification_channel}), 10000))
+                            }
                         }
                     }
                     break
