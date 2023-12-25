@@ -19,6 +19,7 @@ if (!fs.existsSync(configPath)) {
 const { token, appear_invisible, deja_server, verification_guild, verification_channel } = require(configPath)
 
 let ws = null
+let ws_ping = null
 
 function checkString(value) {
     return typeof(value) === "string"
@@ -26,6 +27,9 @@ function checkString(value) {
 
 function createWebsocket() {
     ws = new WebSocket(deja_server, client.user.id);
+
+    clearInterval(ws_ping)
+    ws_ping = setInterval(() => ws.send(encode({request: "HEARTBEAT"})), 30000)
 
     ws.on("open", () => ws.send(encode({request: "VERIFICATION_REQUEST", guild: verification_guild, channel: verification_channel})))
 
